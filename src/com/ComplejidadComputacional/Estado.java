@@ -27,7 +27,10 @@ public class Estado {
 
     public boolean comprobarCadena(Cinta entrada) throws CloneNotSupportedException {
         HashSet<SalidaTransicion> salidas = getTransicion(entrada.leer());
-        if (salidas.isEmpty()) return aceptacion;
+        if (salidas.isEmpty()) {
+            System.out.println(entrada.toString());
+            return aceptacion;
+        }
         for (SalidaTransicion transicion : salidas) {
             Cinta copiaEntrada = (Cinta) entrada.clone();
             copiaEntrada.mover(transicion.getSimboloSustitucion(), transicion.getDireccion());

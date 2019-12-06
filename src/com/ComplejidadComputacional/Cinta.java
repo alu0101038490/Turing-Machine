@@ -2,6 +2,7 @@ package com.ComplejidadComputacional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Cinta implements Cloneable {
 
@@ -47,5 +48,12 @@ public class Cinta implements Cloneable {
         Cinta copia = (Cinta) super.clone();
         copia.cadena = (ArrayList<String>) copia.cadena.clone();
         return copia;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder resultado = new StringBuilder(String.join("", cadena));
+        resultado.replace(posicion, posicion + 1, "\u001B[31m" + cadena.get(posicion) + "\033[0;0m");
+        return resultado.toString();
     }
 }

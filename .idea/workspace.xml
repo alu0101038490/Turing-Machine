@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31188bc2-1716-40fe-9933-d2160e0541db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomataConPila.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MaquinaDeTuring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APf-2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APf-jueves.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APf-viernes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APf.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APv-2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APv-jueves.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APv-viernes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejemplos/APv.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Automata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/MaquinaTuring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/EntradaTransicion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Cinta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Cinta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Estado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Estado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Cinta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Cinta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Finalizacion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/SalidaTransicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/SalidaTransicion.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
