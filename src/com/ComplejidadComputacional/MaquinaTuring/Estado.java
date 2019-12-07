@@ -1,4 +1,4 @@
-package com.ComplejidadComputacional;
+package com.ComplejidadComputacional.MaquinaTuring;
 
 import java.util.*;
 
@@ -15,26 +15,31 @@ public class Estado {
         this.transiciones = new HashMap<>();
     }
 
-    public void addTransicion(String[] entrada, Estado siguiente, String[] salida, String[] direcciones) {
+    public void addTransicion(String[] entrada, Estado siguiente, String[] salida, Direccion[] direcciones) {
         HashSet<SalidaTransicion> salidas = transiciones.getOrDefault(entrada, new HashSet<>());
         salidas.add(new SalidaTransicion(siguiente, salida, direcciones));
         transiciones.put(new ArrayList<>(Arrays.asList(entrada)), salidas);
     }
 
     public HashSet<SalidaTransicion> getTransicion(String[] simbolos) {
-        return transiciones.getOrDefault(Arrays.asList(simbolos), new HashSet<>());
+        return getTransicion(new ArrayList<>(Arrays.asList(simbolos)));
     }
 
-    public boolean comprobarCadena(Cinta entrada) throws CloneNotSupportedException {
-        HashSet<SalidaTransicion> salidas = getTransicion(entrada.leer());
-        if (salidas.isEmpty()) {
-            System.out.println(entrada.toString());
+    public HashSet<SalidaTransicion> getTransicion(ArrayList<String> simbolos) {
+        return transiciones.getOrDefault(simbolos, new HashSet<>());
+    }
+
+    public boolean comprobarCadena(Multicinta cintas) {
+        HashSet<SalidaTransicion> transiciones = getTransicion(cintas.leer());
+        if (transiciones.isEmpty()) {
+            System.out.println(cintas.toString());
             return aceptacion;
         }
-        for (SalidaTransicion transicion : salidas) {
-            Cinta copiaEntrada = (Cinta) entrada.clone();
-            copiaEntrada.mover(transicion);
-            if (transicion.getSiguiente().comprobarCadena(copiaEntrada)) return true;
+        for (SalidaTransicion transicion : transiciones) {
+            // Si hay sólo un camino nos podemos ahorrar la carga de copiar la cinta.
+            Multicinta copiaCinta = (transiciones.size() > 1) ? (Multicinta) cintas.clone() : cintas;
+            copiaCinta.mover(transicion);
+            if (transicion.getSiguiente().comprobarCadena(copiaCinta)) return true;
         }
         return false;
     }

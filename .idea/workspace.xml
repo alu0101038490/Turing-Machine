@@ -4,12 +4,15 @@
     <list default="true" id="31188bc2-1716-40fe-9933-d2160e0541db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Cinta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Cinta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Direccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Direccion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Estado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Estado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/MaquinaTuring.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/MaquinaTuring.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/SalidaTransicion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/SalidaTransicion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Cinta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Cinta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Direccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/MaquinaTuring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/MaquinaTuring.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/SalidaTransicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/SalidaTransicion.java" afterDir="false" />
     </list>
@@ -22,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,11 +55,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ComplejidadComputacional.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.ComplejidadComputacional.MaquinaTuring.Main" />
       <module name="MaquinaDeTuring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ComplejidadComputacional.*" />
+          <option name="PATTERN" value="com.ComplejidadComputacional.MaquinaTuring.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

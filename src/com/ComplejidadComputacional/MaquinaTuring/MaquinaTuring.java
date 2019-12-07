@@ -1,4 +1,4 @@
-package com.ComplejidadComputacional;
+package com.ComplejidadComputacional.MaquinaTuring;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -63,7 +63,6 @@ public class MaquinaTuring {
                 if (transicion.length == ((numeroCintas * 3) + 2)) {
                     String[] entrada = Arrays.copyOfRange(transicion, 1, numeroCintas + 1);
                     String[] salida = Arrays.copyOfRange(transicion, numeroCintas + 2, numeroCintas * 2 + 2);
-                    String[] direcciones = Arrays.copyOfRange(transicion, numeroCintas * 2 + 2, transicion.length);
 
                     if (alfabetoCinta.containsAll(Arrays.asList(entrada)) &&
                             alfabetoCinta.containsAll(Arrays.asList(salida)) &&
@@ -71,6 +70,10 @@ public class MaquinaTuring {
                             nombresEstados.contains(transicion[numeroCintas + 1])) {
 
                         try {
+                            Direccion[] direcciones = new Direccion[transicion.length - (numeroCintas * 2 + 2)];
+                            for (int i = 0; i < direcciones.length; i++)
+                                direcciones[i] = Direccion.valueOf(transicion[i + numeroCintas * 2 + 2]);
+
                             estados.get(transicion[0]).addTransicion(
                                     entrada,
                                     estados.get(transicion[numeroCintas + 1]),
@@ -79,6 +82,8 @@ public class MaquinaTuring {
                         } catch (IllegalArgumentException e) {
                             throw new IllegalArgumentException("Dirección/es no apta/s.");
                         }
+                    } else {
+                        throw new IllegalArgumentException("Datos mal colocados en las transiciones.");
                     }
                 } else {
                     throw new IllegalArgumentException("Datos mal colocados en las transiciones.");
@@ -89,7 +94,8 @@ public class MaquinaTuring {
         }
     }
 
-    public boolean comprobarCadena(String cadena) throws CloneNotSupportedException {
-        return estadoInicial.comprobarCadena(new Cinta(cadena, simboloBlanco, numeroCintas));
+    public boolean comprobarCadena(String cadena) {
+        // La cinta se genera aquí porque es específica de cada ejecución
+        return estadoInicial.comprobarCadena(new Multicinta(cadena, simboloBlanco, numeroCintas));
     }
 }
