@@ -2,58 +2,74 @@ package com.ComplejidadComputacional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.Collections;
 
 public class Cinta implements Cloneable {
 
-    private ArrayList<String> cadena;
-    private int posicion;
+    private ArrayList<ArrayList<String>> cintas;
+    private int[] posiciones;
     private String simboloBlanco;
 
-    public Cinta(String cadenaInicio, String simboloBlanco) {
-        this((cadenaInicio.length() == 0) ? new ArrayList<>() : new ArrayList<>(Arrays.asList(cadenaInicio.split(""))), simboloBlanco);
+    public Cinta(String cadenaInicio, String simboloBlanco, int numeroCintas) {
+        this((cadenaInicio.length() == 0) ? new ArrayList<>() : new ArrayList<>(Arrays.asList(cadenaInicio.split(""))), simboloBlanco, numeroCintas);
     }
 
-    public Cinta(String[] cadenaInicio, String simboloBlanco) {
-        this((ArrayList<String>) Arrays.asList(cadenaInicio), simboloBlanco);
+    public Cinta(String[] cadenaInicio, String simboloBlanco, int numeroCintas) {
+        this((ArrayList<String>) Arrays.asList(cadenaInicio), simboloBlanco, numeroCintas);
     }
 
-    public Cinta(ArrayList<String> cadenaInicio, String simboloBlanco) {
-        this.cadena = cadenaInicio;
-        this.posicion = 0;
+    public Cinta(ArrayList<String> cadenaInicio, String simboloBlanco, int numeroCintas) {
+        this.cintas = new ArrayList<>();
+        this.posiciones = new int[numeroCintas];
         this.simboloBlanco = simboloBlanco;
 
-        if (this.cadena.isEmpty()) this.cadena.add(this.simboloBlanco);
+        ArrayList<String> cadenaVacia = new ArrayList<>(Collections.singleton(this.simboloBlanco));
+        this.cintas.add(cadenaInicio.isEmpty() ? cadenaVacia : cadenaInicio);
+        for (int i = 1; i < numeroCintas; i++)
+            this.cintas.add((ArrayList<String>) cadenaVacia.clone());
     }
 
-    public String leer() {
-        return cadena.get(posicion);
+    public String[] leer() {
+        String[] simbolos = new String[cintas.size()];
+        Arrays.setAll(simbolos, i -> cintas.get(i).get(posiciones[i]));
+        return simbolos;
     }
 
-    public void mover(String simbolo, Direccion direccion) {
-        cadena.set(posicion, simbolo);
-        if (direccion.equals(Direccion.R)) {
-            posicion++;
-            if (posicion >= cadena.size())
-                cadena.add(simboloBlanco);
-        } else if (direccion.equals(Direccion.L)) {
-            if (posicion == 0)
-                cadena.add(0, simboloBlanco);
-            else
-                posicion--;
+    public void mover(SalidaTransicion movimiento) {
+        mover(movimiento.getSimbolosSustitucion(), movimiento.getDirecciones());
+    }
+
+    private void mover(String[] simbolosSustitucion, Direccion[] direcciones) {
+        for (int i = 0; i < direcciones.length; i++) {
+            cintas.get(i).set(posiciones[i], simbolosSustitucion[i]);
+            if (direcciones[i].equals(Direccion.R)) {
+                posiciones[i]++;
+                if (posiciones[i] >= cintas.get(i).size())
+                    cintas.get(i).add(simboloBlanco);
+            } else if (direcciones[i].equals(Direccion.L)) {
+                if (posiciones[i] == 0)
+                    cintas.get(i).add(0, simboloBlanco);
+                else
+                    posiciones[i]--;
+            }
         }
     }
 
     public Object clone() throws CloneNotSupportedException {
         Cinta copia = (Cinta) super.clone();
-        copia.cadena = (ArrayList<String>) copia.cadena.clone();
+        copia.cintas = (ArrayList<ArrayList<String>>) copia.cintas.clone();
+        copia.posiciones = copia.posiciones.clone();
         return copia;
     }
 
     @Override
     public String toString() {
-        StringBuilder resultado = new StringBuilder(String.join("", cadena));
-        resultado.replace(posicion, posicion + 1, "\u001B[31m" + cadena.get(posicion) + "\033[0;0m");
+        StringBuilder resultado = new StringBuilder();
+        for (int i = 0; i < cintas.size(); i++) {
+            StringBuilder situacionCinta = new StringBuilder(String.join("", cintas.get(i)));
+            situacionCinta.replace(posiciones[i], posiciones[i] + 1, "\u001B[31m" + cintas.get(i).get(posiciones[i]) + "\033[0;0m");
+            resultado.append("\nCinta ").append(i+1).append(": ").append(situacionCinta.toString());
+        }
         return resultado.toString();
     }
 }

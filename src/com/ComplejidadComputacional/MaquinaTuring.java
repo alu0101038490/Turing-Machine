@@ -9,12 +9,13 @@ import java.util.stream.Collectors;
 
 public class MaquinaTuring {
 
-    // A pesar de que los atributos "alfabeto" y "alfabetoPila" pueden ser locales actualmente
+    // A pesar de que los atributos "alfabetoEntrada" y "alfabetoCinta" pueden ser locales actualmente
     // se ha decidido que sean un argumento pensando en posibles ampliaciones de la práctica
     private Vector<String> alfabetoEntrada;
     private Vector<String> alfabetoCinta;
     private Estado estadoInicial;
     private String simboloBlanco;
+    private int numeroCintas;
 
     public MaquinaTuring(String nombreFichero) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(new File(nombreFichero)));
@@ -53,21 +54,31 @@ public class MaquinaTuring {
             else
                 throw new IllegalArgumentException("El simbolo vacío debe pertenecer al alfabeto de la cinta pero no al de entrada.");
 
-            for (String[] transicion : tokens.subList(6, tokens.size())) {
-                if (transicion.length == 5 &&
-                        nombresEstados.contains(transicion[0]) &&
-                        alfabetoCinta.contains(transicion[1]) &&
-                        nombresEstados.contains(transicion[2]) &&
-                        alfabetoCinta.contains(transicion[3])) {
+            if ((tokens.get(6).length - 2) % 3 == 0)
+                numeroCintas = (tokens.get(6).length - 2) / 3;
+            else
+                throw new IllegalArgumentException("Datos mal colocados en las transiciones.");
 
-                    try {
-                        estados.get(transicion[0]).addTransicion(
-                                transicion[1],
-                                estados.get(transicion[2]),
-                                transicion[3],
-                                Direccion.valueOf(transicion[4]));
-                    } catch (IllegalArgumentException e) {
-                        throw new IllegalArgumentException("Dirección no apta.");
+            for (String[] transicion : tokens.subList(6, tokens.size())) {
+                if (transicion.length == ((numeroCintas * 3) + 2)) {
+                    String[] entrada = Arrays.copyOfRange(transicion, 1, numeroCintas + 1);
+                    String[] salida = Arrays.copyOfRange(transicion, numeroCintas + 2, numeroCintas * 2 + 2);
+                    String[] direcciones = Arrays.copyOfRange(transicion, numeroCintas * 2 + 2, transicion.length);
+
+                    if (alfabetoCinta.containsAll(Arrays.asList(entrada)) &&
+                            alfabetoCinta.containsAll(Arrays.asList(salida)) &&
+                            nombresEstados.contains(transicion[0]) &&
+                            nombresEstados.contains(transicion[numeroCintas + 1])) {
+
+                        try {
+                            estados.get(transicion[0]).addTransicion(
+                                    entrada,
+                                    estados.get(transicion[numeroCintas + 1]),
+                                    salida,
+                                    direcciones);
+                        } catch (IllegalArgumentException e) {
+                            throw new IllegalArgumentException("Dirección/es no apta/s.");
+                        }
                     }
                 } else {
                     throw new IllegalArgumentException("Datos mal colocados en las transiciones.");
@@ -79,6 +90,6 @@ public class MaquinaTuring {
     }
 
     public boolean comprobarCadena(String cadena) throws CloneNotSupportedException {
-        return estadoInicial.comprobarCadena(new Cinta(cadena, simboloBlanco));
+        return estadoInicial.comprobarCadena(new Cinta(cadena, simboloBlanco, numeroCintas));
     }
 }

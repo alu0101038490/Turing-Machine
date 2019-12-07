@@ -7,7 +7,7 @@ public class Estado {
     private String nombre;
     private boolean aceptacion;
     // Las transiciones son HashMap para localizarlas con eficiencia
-    private HashMap<String, HashSet<SalidaTransicion>> transiciones;
+    private HashMap<ArrayList<String>, HashSet<SalidaTransicion>> transiciones;
 
     public Estado(String nombre, boolean aceptacion) {
         this.nombre = nombre;
@@ -15,14 +15,14 @@ public class Estado {
         this.transiciones = new HashMap<>();
     }
 
-    public void addTransicion(String simbolo, Estado siguiente, String simboloSustitucion, Direccion direccion) {
-        HashSet<SalidaTransicion> salidas = transiciones.getOrDefault(simbolo, new HashSet<>());
-        salidas.add(new SalidaTransicion(siguiente, simboloSustitucion, direccion));
-        transiciones.put(simbolo, salidas);
+    public void addTransicion(String[] entrada, Estado siguiente, String[] salida, String[] direcciones) {
+        HashSet<SalidaTransicion> salidas = transiciones.getOrDefault(entrada, new HashSet<>());
+        salidas.add(new SalidaTransicion(siguiente, salida, direcciones));
+        transiciones.put(new ArrayList<>(Arrays.asList(entrada)), salidas);
     }
 
-    public HashSet<SalidaTransicion> getTransicion(String simbolo) {
-        return transiciones.getOrDefault(simbolo, new HashSet<>());
+    public HashSet<SalidaTransicion> getTransicion(String[] simbolos) {
+        return transiciones.getOrDefault(Arrays.asList(simbolos), new HashSet<>());
     }
 
     public boolean comprobarCadena(Cinta entrada) throws CloneNotSupportedException {
@@ -33,7 +33,7 @@ public class Estado {
         }
         for (SalidaTransicion transicion : salidas) {
             Cinta copiaEntrada = (Cinta) entrada.clone();
-            copiaEntrada.mover(transicion.getSimboloSustitucion(), transicion.getDireccion());
+            copiaEntrada.mover(transicion);
             if (transicion.getSiguiente().comprobarCadena(copiaEntrada)) return true;
         }
         return false;

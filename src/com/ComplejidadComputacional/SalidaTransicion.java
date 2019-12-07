@@ -1,25 +1,30 @@
 package com.ComplejidadComputacional;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SalidaTransicion {
 
     private Estado siguiente;
-    private String simboloSustitucion;
-    private Direccion direccion;
+    private String[] simbolosSustitucion;
+    private Direccion[] direcciones;
 
-    public SalidaTransicion(Estado siguiente, String simboloSustitucion, Direccion direccion) {
+    public SalidaTransicion(Estado siguiente, String[] simbolosSustitucion, String[] direcciones) {
+        if (simbolosSustitucion.length != direcciones.length)
+            throw new IllegalArgumentException("El número de símbolos de sustitución y direcciones de una transición debe ser el mismo.");
+
         this.siguiente = siguiente;
-        this.simboloSustitucion = simboloSustitucion;
-        this.direccion = direccion;
+        this.simbolosSustitucion = simbolosSustitucion;
+        this.direcciones = new Direccion[direcciones.length];
+        for(int i = 0; i < direcciones.length; i++)
+            this.direcciones[i] = Direccion.valueOf(direcciones[i]);
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof SalidaTransicion) {
             return siguiente == ((SalidaTransicion) obj).siguiente &&
-                    simboloSustitucion.equals(((SalidaTransicion) obj).simboloSustitucion) &&
-                    direccion.equals(((SalidaTransicion) obj).direccion);
+                    Arrays.equals(simbolosSustitucion, ((SalidaTransicion) obj).simbolosSustitucion) &&
+                    Arrays.equals(direcciones, ((SalidaTransicion) obj).direcciones);
         } else {
             return false;
         }
@@ -29,11 +34,11 @@ public class SalidaTransicion {
         return siguiente;
     }
 
-    public String getSimboloSustitucion() {
-        return simboloSustitucion;
+    public String[] getSimbolosSustitucion() {
+        return simbolosSustitucion;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
+    public Direccion[] getDirecciones() {
+        return direcciones;
     }
 }
