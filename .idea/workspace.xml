@@ -3,18 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="31188bc2-1716-40fe-9933-d2160e0541db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Cinta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Cinta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Direccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Direccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Estado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Estado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/MaquinaTuring.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/MaquinaTuring.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/SalidaTransicion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/SalidaTransicion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Cinta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Cinta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Direccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Estado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/MaquinaTuring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/MaquinaTuring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/SalidaTransicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/SalidaTransicion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejemplos/MT_multicinta.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ejemplos/MT_multicinta.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/MaquinaTuring/MaquinaTuring.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MaquinaDeTuring/com/ComplejidadComputacional/MaquinaTuring/MaquinaTuring.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ComplejidadComputacional/MaquinaTuring/MaquinaTuring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ComplejidadComputacional/MaquinaTuring/MaquinaTuring.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +32,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ComplejidadComputacional.MaquinaTuring" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -63,53 +59,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="MaquinaDeTuring" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="MaquinaDeTuring" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

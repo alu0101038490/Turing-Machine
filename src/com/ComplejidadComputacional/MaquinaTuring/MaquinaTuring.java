@@ -62,26 +62,28 @@ public class MaquinaTuring {
             for (String[] transicion : tokens.subList(6, tokens.size())) {
                 if (transicion.length == ((numeroCintas * 3) + 2)) {
                     String[] entrada = Arrays.copyOfRange(transicion, 1, numeroCintas + 1);
-                    String[] salida = Arrays.copyOfRange(transicion, numeroCintas + 2, numeroCintas * 2 + 2);
+                    Direccion[] direcciones = new Direccion[numeroCintas];
+                    String[] salida = new String[numeroCintas];
 
-                    if (alfabetoCinta.containsAll(Arrays.asList(entrada)) &&
-                            alfabetoCinta.containsAll(Arrays.asList(salida)) &&
+                    try {
+                        for (int i = 0; i < numeroCintas; i++) {
+                            direcciones[i] = Direccion.valueOf(transicion[i * 2 + numeroCintas + 3]);
+                            salida[i] = transicion[i * 2 + numeroCintas + 2];
+                        }
+                    } catch (IllegalArgumentException e) {
+                        throw new IllegalArgumentException("Dirección/es no apta/s. ");
+                    }
+
+                    if (alfabetoCinta.containsAll(Arrays.asList(salida)) &&
+                            alfabetoCinta.containsAll(Arrays.asList(entrada)) &&
                             nombresEstados.contains(transicion[0]) &&
                             nombresEstados.contains(transicion[numeroCintas + 1])) {
 
-                        try {
-                            Direccion[] direcciones = new Direccion[transicion.length - (numeroCintas * 2 + 2)];
-                            for (int i = 0; i < direcciones.length; i++)
-                                direcciones[i] = Direccion.valueOf(transicion[i + numeroCintas * 2 + 2]);
-
-                            estados.get(transicion[0]).addTransicion(
-                                    entrada,
-                                    estados.get(transicion[numeroCintas + 1]),
-                                    salida,
-                                    direcciones);
-                        } catch (IllegalArgumentException e) {
-                            throw new IllegalArgumentException("Dirección/es no apta/s.");
-                        }
+                        estados.get(transicion[0]).addTransicion(
+                                entrada,
+                                estados.get(transicion[numeroCintas + 1]),
+                                salida,
+                                direcciones);
                     } else {
                         throw new IllegalArgumentException("Datos mal colocados en las transiciones.");
                     }
